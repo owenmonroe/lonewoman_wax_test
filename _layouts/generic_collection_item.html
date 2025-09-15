@@ -6,29 +6,52 @@ layout: default
   The block below controls the image viewer
 {% endcomment %}
 
-<h3 alt="{{ page.label | escape }}" class='item-label'>{{ page.label }}</h3>
-  <div class='item-view'>
-    <span class='pagination-link' id='prevlink'></span>
+{% assign display_title = page.title | default: page.label %}
+<h3 alt="{{ display_title | escape }}" class='item-label'>{{ display_title }}</h3>
 
-    {% if page.manifest.size > 0 %}
-      {% include osd_iiif_image_viewer.html manifest=page.manifest %}
-    {% elsif page.full.size > 0 %}
-      {% include simple_image_viewer.html full_image=page.full %}
+<div class='item-view'>
+  <span class='pagination-link' id='prevlink'></span>
+
+  {% if page.manifest and page.manifest != "" %}
+    {% include osd_iiif_image_viewer.html manifest=page.manifest %}
+  {% elsif page.full and page.full != "" %}
+    {% include simple_image_viewer.html full_image=page.full %}
+  {% else %}
+    {% assign inline_img = page.image | default: page.thumb %}
+    {% if inline_img %}
+      <img src="{{ inline_img | relative_url }}" alt="{{ display_title }}">
     {% endif %}
-    
-    <span class='pagination-link' id='nextlink'></span>
-  </div>
-  {% unless layout.pagination == false %}{% include item_pagination.html %}{% endunless %}
+  {% endif %}
+
+  <span class='pagination-link' id='nextlink'></span>
+</div>
+
+{% unless layout.pagination == false %}
+  {% include item_pagination.html %}
+{% endunless %}
 
 {% comment %}
   The block below controls the item metadata table
 {% endcomment %}
 
-{% if layout.meta.size %}
+{% if layout.meta and layout.meta.size %}
   {% assign metadata = layout.meta %}
-{% elsif page.meta.size %}
+{% elsif page.meta and page.meta.size %}
   {% assign metadata = page.meta %}
 {% endif %}
-{% if metadata.size %}
+
+{% if metadata and metadata.size %}
   {% include item_metadata.html meta=metadata %}
+{% else %}
+  {%- comment -%}
+    Fallback metadata rendering (no meta hash provided).
+    Shows common fields if present without relying on item_metadata.html.
+  {%- endcomment -%}
+  <dl class="item-meta">
+    {% if page.source %}<dt>Source</dt><dd>{{ page.source }}</dd>{% endif %}
+    {% if page.location %}<dt>Location</dt><dd>{{ page.location }}</dd>{% endif %}
+    {% if page.date %}<dt>Date</dt><dd>{{ page.date }}</dd>{% endif %}
+    {% if page.license %}<dt>License</dt><dd>{{ page.license }}</dd>{% endif %}
+    {% if page.tags %}<dt>Tags</dt><dd>{{ page.tags | array_to_sentence_string }}</dd>{% endif %}
+  </dl>
 {% endif %}

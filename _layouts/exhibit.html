@@ -13,3 +13,28 @@ layout: default
 </div>
 
 {{ content }}
+
+<hr>
+
+<div class="exhibit-grid">
+  {% assign items = site.items | sort: 'date' %}
+  {% for doc in items %}
+    <article class="exhibit-card">
+      {% assign img = doc.thumb | default: doc.image %}
+      {% if img %}
+        <a href="{{ doc.url | relative_url }}">
+          <img src="{{ img | relative_url }}" alt="{{ doc.title }}">
+        </a>
+      {% endif %}
+      <h3 class="exhibit-card-title">
+        <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
+      </h3>
+      {% if doc.source or doc.date %}
+        <p class="exhibit-card-meta">
+          {% if doc.source %}{{ doc.source }}{% endif %}
+          {% if doc.date %} — {{ doc.date }}{% endif %}
+        </p>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>
