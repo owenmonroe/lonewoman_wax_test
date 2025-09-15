@@ -60,13 +60,17 @@ collections:
   exhibits:
     output: true
   qatar: # name of collection
-    output: true # makes sure pages are output as html files
+    output: false  # makes sure pages are output as html files #Owen added this to false, turning off template info
     layout: 'qatar_item' # the layout for the pages to use
     metadata:
       source: 'qatar.csv' # path to the metadata file within `_data`
     images:
       source: 'raw_images/qatar' # path to the directory of images within `_data`
 
+collections:
+  items:
+    output: true
+    permalink: /items/:slug/
 # --------------------------------------------------------------
 # SEARCH INDEX SETTINGS
 # --------------------------------------------------------------
