@@ -136,4 +136,24 @@ footer:
   logos:
     - img: '/img/logo.png'
 
+
+# --------------------------------------------------------------
+# DIFFERENT LAYOUT MODES
+# --------------------------------------------------------------
+#
+
+nav:
+  - title: Home
+    url: /
+  - title: Gallery
+    url: /exhibit/
+  - title: Table
+    url: /table/
+  - title: Search
+    url: /search/
+  - title: Tags
+    url: /tags/
+  - title: Essay
+    url: /essay/
+
 # FIN
