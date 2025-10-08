@@ -1,13 +1,29 @@
 <head>
-  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>
     {{ site.title }}{% if page.label %} | {{ page.label }}{% elsif page.title %} | {{ page.title }}{% endif %}
   </title>
 
-  <link rel='canonical' href='{{ page.url | relative_url }}'/>
-  <link rel='icon' type='image/png' href="{{ 'img/logo.png' | relative_url }}">
-  <link rel='stylesheet' href="{{ '/assets/styles.css' | relative_url }}"/>
+  <!-- Canonical link should be absolute (full URL, for SEO and link consistency) -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}"/>
 
-  <script type='text/javascript' src="{{ '/assets/jquery-3.2.1.min.js' | relative_url }}"></script>
+  <!-- Favicon / site icon -->
+  <link rel="icon" type="image/png" href="{{ '/img/logo.png' | relative_url }}">
+
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}"/>
+
+  <!-- Optional external fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+
+  <!-- Search and interactivity scripts -->
+  <script src="{{ '/assets/jquery-3.2.1.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/elasticlunr.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/search-ui.js' | relative_url }}"></script>
+
+  <!-- Bootstrap / Popper (if used) -->
+  <script src="{{ '/assets/bootstrap/bootstrap.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/popper.min.js' | relative_url }}"></script>
 </head>

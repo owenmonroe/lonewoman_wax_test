@@ -69,6 +69,13 @@ collections:
   items:
     output: true
     permalink: /items/:slug/
+  search:
+    main:
+      index: /search/index.json
+      collections:
+        items:
+          fields: ["title", "source", "tags", "date", "content"]
+
 # --------------------------------------------------------------
 # SEARCH INDEX SETTINGS
 # --------------------------------------------------------------
