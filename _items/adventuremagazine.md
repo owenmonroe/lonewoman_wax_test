@@ -8,4 +8,5 @@ image: "/assets/images/AdventureMagazine_FemaleCrusoe_2.1.1930.png"
 # thumb: "/assets/images/thumbs/AdamsCountyFreePress_SeaOtterShooting_6.1905.jpg"  # optional
 description: "Brief blurb…"
 permalink: "/items/:slug/"
+tags: ["crusoe", "adventure"]
 ---

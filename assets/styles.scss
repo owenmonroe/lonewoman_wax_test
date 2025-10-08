@@ -1,51 +1,80 @@
 ---
 sitemap: false
 ---
-/*
-variable declaration
-*/
+
+// -------------------------
+// Variables
+// -------------------------
 
 /* branding */
-$logo: url("{{ '/assets/logo.png' | absolute_url }}");
+$logo: url("{{ '/assets/logo.png' | relative_url }}");
 
 /* text */
+$body-font:    'Open Sans', 'sans-serif';
+$heading-font: 'Open Sans', 'sans-serif';
 
-$body-font:       'Open Sans', 'sans-serif';
-$heading-font:    'Open Sans', 'sans-serif';
-
-
-/* Image Size */
-
+/* image size */
 $thumbnail-height: 140px;
-$thumbnail-width: 140px;
+$thumbnail-width:  140px;
 
 /* colors */
-
-$text-color:      #100c01;
-$bg-color:        #ffffff;
-$neutral:         #eae7de;
-$accent-light:    #966d09;
-$accent-dark:     #644906;
+$text-color:   #100c01;
+$bg-color:     #ffffff;
+$neutral:      #eae7de;
+$accent-light: #966d09;
+$accent-dark:  #644906;
 
 /* viewport sizes */
-
-$max-width:       800px;
+$max-width: 800px;
 
 /* margins */
-
-$less-margin:     1.0rem;
-$margin:          1.5rem;
-$more-margin:     2.0rem;
-$super-margin:    3.0rem;
-
+$less-margin: 1rem;
+$margin:      1.5rem;
+$more-margin: 2rem;
+$super-margin: 3rem;
 
 $viewer-height:   550px;
 $parallax-height: 350px;
 $footer-height:   250px;
 
-/*
-font & asset import
-*/
+// -------------------------
+// Imports
+// -------------------------
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&font-display=auto');
 @import 'wax';
+
+// -------------------------
+// Exhibit grid tweaks
+// -------------------------
+
+.exhibit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.exhibit-card {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.exhibit-card img {
+  width: 100%;
+  height: 200px;   /* control tile size here */
+  object-fit: cover;
+  display: block;
+}
+
+.exhibit-card-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.exhibit-card-meta {
+  margin: 0;
+  opacity: .75;
+  font-size: .9rem;
+}

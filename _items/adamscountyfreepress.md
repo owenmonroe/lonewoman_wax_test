@@ -8,4 +8,5 @@ image: "/assets/images/AdamsCountyFreePress_SeaOtterShooting_6.1905.png"
 # thumb: "/assets/images/thumbs/AdamsCountyFreePress_SeaOtterShooting_6.1905.jpg"  # optional
 description: "Brief blurb…"
 permalink: "/items/:slug/"
+tags: ["wildlife", "adams county"]
 ---

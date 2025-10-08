@@ -8,4 +8,5 @@ image: "/assets/images/AdamsSentinel_FemaleCrusoe_11.7.1853.png"
 # thumb: "/assets/images/thumbs/AdamsCountyFreePress_SeaOtterShooting_6.1905.jpg"  # optional
 description: "Brief blurb…"
 permalink: "/items/:slug/"
+tags: ["crusoe", "adams sentinel"]
 ---
