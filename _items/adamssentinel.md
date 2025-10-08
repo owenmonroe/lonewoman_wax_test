@@ -1,5 +1,5 @@
 ---
-layout: wax/collection_item
+layout: wax/generic_collection_item
 title: "A Female Cruose"
 slug: "adams-sentinel-female-crusoe-1853"
 date: "1853-11-07"

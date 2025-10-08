@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="{{ '/assets/datatables/datatables.css' | absolute_url }}" />
-<script type="text/javascript" src="{{ 'assets/datatables/datatables.min.js' | absolute_url }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ '/assets/datatables/datatables.css' | relative_url }}" />
+<script type="text/javascript" src="{{ 'assets/datatables/datatables.min.js' | relative_url }}"></script>
 
 <table id='{{ include.collection }}-datatable' class='datatable display'></table>
 {% assign data = site.data[include.collection] %}
@@ -49,14 +49,14 @@
       {% for value in item %}
         {% if value[0] == 'pid' %}
           <td>
-            <a href='{{ "" | absolute_url }}/{{ include.collection }}/{{ item.pid }}/'>
+            <a href='{{ "" | relative_url }}/{{ include.collection }}/{{ item.pid }}/'>
               {{ value[1] }}
             </a>
           </td>
         {% elsif value[1] contains '/img/derivatives/' %}
           <td>
-            <a href='{{ value[1] | absolute_url }}'>
-              {{ value[1] | absolute_url }}
+            <a href='{{ value[1] | relative_url }}'>
+              {{ value[1] | relative_url }}
             </a>
           </td>
         {% else %}

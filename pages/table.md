@@ -31,14 +31,31 @@ permalink: /table/
   </tbody>
 </table>
 
+<!-- jQuery first (needed for the jQuery DataTables plugin) -->
+<script src="{{ '/assets/jquery-3.2.1.min.js' | relative_url }}"></script>
+
+<!-- DataTables CSS + JS -->
+<link rel="stylesheet" href="{{ '/assets/datatables/datatables.css' | relative_url }}"/>
 <script src="{{ '/assets/datatables/datatables.min.js' | relative_url }}"></script>
-<link rel="stylesheet" href="{{ '/assets/datatables/datatables.min.css' | relative_url }}"/>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  new DataTable('#items-table', {
-    pageLength: 10,
-    order: [[2, 'asc']]
-  });
+  try {
+    if (window.jQuery && jQuery.fn && jQuery.fn.DataTable) {
+      jQuery('#items-table').DataTable({
+        pageLength: 10,
+        order: [[2, 'asc']]
+      });
+    } else if (window.DataTable && typeof window.DataTable === 'function') {
+      new DataTable('#items-table', {
+        pageLength: 10,
+        order: [[2, 'asc']]
+      });
+    } else {
+      console.warn('DataTables not found. Check JS/CSS filenames and paths in assets/datatables/.');
+    }
+  } catch (e) {
+    console.error('DataTables init error:', e);
+  }
 });
 </script>

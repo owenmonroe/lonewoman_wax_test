@@ -9,13 +9,15 @@ permalink: /tags/
 
 <script>
 const items = [
-  {% for doc in site.items %}
+  {% assign rows = site.items | sort: 'title' %}
+  {% for doc in rows %}
+  {% assign img_src = doc.thumb | default: doc.image %}
   {
     url: "{{ doc.url | relative_url }}",
     title: {{ doc.title | jsonify }},
     source: {{ doc.source | jsonify }},
     date: {{ doc.date | jsonify }},
-    img: {{ (doc.thumb | default: doc.image) | jsonify }},
+    img: {{ img_src | relative_url | jsonify }},
     tags: {{ doc.tags | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}

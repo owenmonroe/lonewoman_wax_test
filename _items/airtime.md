@@ -1,5 +1,5 @@
 ---
-layout: wax/collection_item
+layout: wax/generic_collection_item
 title: "Lost Indian Cave"
 slug: "airtime-lost-indian-cave-2013"
 date: "2013-06-21"

@@ -1,6 +1,6 @@
 <nav id='wax-header' class='navbar navbar-expand-lg navbar-light'>
  <div class='wax-inline-container'>
-    <a class='navbar-brand' href="{{ '/' | absolute_url }}" title='Home'>
+    <a class='navbar-brand' href="{{ '/' | relative_url }}" title='Home'>
       {{ site.title | newline_to_br }}
     </a>
 
@@ -18,13 +18,13 @@
               </a>
               <div class='dropdown-menu' aria-labelledby='wax-{{ item.label | slugify }}-dropdown'>
                 {% for sub in item.sub %}
-                  <a class='dropdown-item' href='{{ sub.link | absolute_url }}'>{{ sub.label }}</a>
+                  <a class='dropdown-item' href='{{ sub.link | relative_url }}'>{{ sub.label }}</a>
                 {% endfor %}
               </div>
             </li>
           {% else %}
             <li class='nav-item'>
-              <a class='nav-link' href='{{ item.link | absolute_url }}'>{{ item.label }}</a>
+              <a class='nav-link' href='{{ item.link | relative_url }}'>{{ item.label }}</a>
             </li>
           {% endif %}
         {% endfor %}

@@ -7,15 +7,17 @@ layout: default
 {% endcomment %}
 
 {% assign display_title = page.title | default: page.label %}
-<h3 alt="{{ display_title | escape }}" class='item-label'>{{ display_title }}</h3>
+<h3 class='item-label'>{{ display_title }}</h3>
 
 <div class='item-view'>
   <span class='pagination-link' id='prevlink'></span>
 
   {% if page.manifest and page.manifest != "" %}
-    {% include osd_iiif_image_viewer.html manifest=page.manifest %}
+    {% assign manifest_url = page.manifest | relative_url %}
+    {% include osd_iiif_image_viewer.html manifest=manifest_url %}
   {% elsif page.full and page.full != "" %}
-    {% include simple_image_viewer.html full_image=page.full %}
+    {% assign full_img = page.full | relative_url %}
+    {% include simple_image_viewer.html full_image=full_img %}
   {% else %}
     {% assign inline_img = page.image | default: page.thumb %}
     {% if inline_img %}
@@ -43,10 +45,6 @@ layout: default
 {% if metadata and metadata.size %}
   {% include item_metadata.html meta=metadata %}
 {% else %}
-  {%- comment -%}
-    Fallback metadata rendering (no meta hash provided).
-    Shows common fields if present without relying on item_metadata.html.
-  {%- endcomment -%}
   <dl class="item-meta">
     {% if page.source %}<dt>Source</dt><dd>{{ page.source }}</dd>{% endif %}
     {% if page.location %}<dt>Location</dt><dd>{{ page.location }}</dd>{% endif %}

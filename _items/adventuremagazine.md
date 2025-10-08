@@ -1,5 +1,5 @@
 ---
-layout: wax/collection_item
+layout: wax/generic_collection_item
 title: "A Female Robinson Crusoe"
 slug: "adventure-magazine-female-robinson-crusoe-1930"
 date: "1930-02-01"

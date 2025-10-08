@@ -1,5 +1,5 @@
 ---
-layout: wax/collection_item
+layout: wax/generic_collection_item
 title: "Sea Otter Shooting"
 slug: "adams-county-sea-otter-1905"
 date: "1905-06-01"

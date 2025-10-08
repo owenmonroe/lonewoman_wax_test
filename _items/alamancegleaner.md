@@ -1,5 +1,5 @@
 ---
-layout: wax/collection_item
+layout: wax/generic_collection_item
 title: "Alone for Eighteen Years"
 slug: "alamance-gleander-alone-for-eighteen-years-1921"
 date: "1921-06-08"
